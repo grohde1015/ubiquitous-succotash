@@ -10,6 +10,10 @@
 #define<GABBIEEE> 
 
 #include <string>
+#include <vector>
+#include <math.h>
+#include <iostream>
+
 
 // mySpace::yourSpace::myClass
 
