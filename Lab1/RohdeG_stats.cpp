@@ -31,5 +31,27 @@ float GabeTheBabe::StatsBro::standardDev(std::vector<float>* data, int size, flo
     return stddev;
 
 }
-float GabeTheBabe::StatsBro::minVal(std::vector<float>* data, int size);
-float GabeTheBabe::StatsBro::maxValue(std::vector<float>* data, int size);
+
+float GabeTheBabe::StatsBro::minVal(std::vector<float>* data, int size){
+    
+    int i = 0; 
+    float min = (*data)[0]; 
+
+    for(i = 0; i< size; i++){
+        if((*data[i]) < min){
+            min = (*data)[i];
+        }
+    }
+    return min;
+}
+float GabeTheBabe::StatsBro::maxValue(std::vector<float>* data, int size){
+    int i = 0;
+    float max = (*data)[0]; 
+
+    for(i=0; i<size; i++){
+        if((*data)[i]> max){
+            max = (*data)[i]; 
+        }
+    }
+    return max; 
+}
