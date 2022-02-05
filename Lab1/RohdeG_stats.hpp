@@ -15,25 +15,29 @@
 #include <iostream>
 
 
-// mySpace::yourSpace::myClass
-
+// mySpace::yourSpace::myClass -- for me that's GabeTheBabe::StatsBro::
+// std::vector -- i wanna copy and paste this thing
 namespace GabeTheBabe{
     class StatsBro{
 
         public:
-            int numDataPoints(float data[]); 
-            float meanValue(float data[]); 
-            float standardDev(float data[]);
-            float minVal(float data[]);
-            float maxValue(float data[]);
-            std::string histogram(float data[]);
+            float meanValue(std::vector<float>* data, int size); 
+            float standardDev(std::vector<float>* data, int size, float average);
+            float minVal(std::vector<float>* data, int size);
+            float maxValue(std::vector<float>* data, int size);
+
+            void allStats(float mean, float stddev, float min, float max);
+            
+            // not sure what to do for the histogram yet so I will ignore until later
+            // std::string histogram(float data[]);
         
         private:
-            float data[];
+            float min;
+            float max;
+            float avg;
+            float stddev; 
          
+    };
     }
-    }
-
- }
 
 #endif 
