@@ -55,3 +55,12 @@ float GabeTheBabe::StatsBro::maxValue(std::vector<float>* data, int size){
     }
     return max; 
 }
+
+void GabeTheBabe::StatsBro::allStats(float mean, float stddev, float min, float max){
+
+    this->mean = mean;
+    this->stddev = stddev;
+    this->min = min;
+    this->max = max; 
+
+}
