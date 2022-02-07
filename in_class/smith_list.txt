@@ -1,0 +1,10 @@
+total 16
+drwxrwxr-x 2 rohdeg rohdeg 4096 Feb  7 10:47 .
+drwxrwxr-x 6 rohdeg rohdeg 4096 Feb  2 12:52 ..
+-rw-rw-r-- 1 rohdeg rohdeg    0 Feb  7 10:49 agent_smith
+-rw-rw-r-- 1 rohdeg rohdeg  181 Jan 31 16:31 grohde_basicbash.sh
+-rw-rw-r-- 1 rohdeg rohdeg  273 Feb  7 10:49 grohde_basicio.sh
+lrwxrwxrwx 1 rohdeg rohdeg   11 Feb  7 10:47 me -> agent_smith
+lrwxrwxrwx 1 rohdeg rohdeg   11 Feb  7 10:47 me_me -> agent_smith
+lrwxrwxrwx 1 rohdeg rohdeg   11 Feb  7 10:47 me_too -> agent_smith
+-rw-rw-r-- 1 rohdeg rohdeg    0 Feb  7 10:49 smith_list.txt
