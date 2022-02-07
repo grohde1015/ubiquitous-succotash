@@ -1,8 +1,15 @@
 // hi
 // 
 #include "RohdeG_stats.hpp"
-
+#include <vector>
+#include <cstdio>
+#include <fstream>
+#include <math.h> 
+#include <iostream>
+#include <string>
 // 
+
+using namespace GabeTheBabe; 
 
 float GabeTheBabe::StatsBro::meanValue(std::vector<float>* data, int size){
 
@@ -22,10 +29,10 @@ float GabeTheBabe::StatsBro::standardDev(std::vector<float>* data, int size, flo
     int i = 0; 
 
     for(i=0; i < size; i++){
-        calculations = pow(((*data[i]) - average),2);
+        calculations = pow((((float)((* data)[i])) - average),2);
         sum = sum + calculations;
     }
-    float new_avg = new_avg / size; 
+    float new_avg = sum / (float)size; 
 
     stddev = sqrt(new_avg);
     return stddev;
@@ -35,30 +42,30 @@ float GabeTheBabe::StatsBro::standardDev(std::vector<float>* data, int size, flo
 float GabeTheBabe::StatsBro::minVal(std::vector<float>* data, int size){
     
     int i = 0; 
-    float min = (*data)[0]; 
+    float min = (float)(* data)[0]; 
 
     for(i = 0; i< size; i++){
-        if((*data[i]) < min){
-            min = (*data)[i];
+        if(((float)((* data)[i])) < min){
+            min = ((float)((* data)[i]));
         }
     }
     return min;
 }
 float GabeTheBabe::StatsBro::maxValue(std::vector<float>* data, int size){
     int i = 0;
-    float max = (*data)[0]; 
+    float max = (float)(* data)[0]; 
 
     for(i=0; i<size; i++){
-        if((*data)[i]> max){
-            max = (*data)[i]; 
+        if((float)(* data)[i]> max){
+            max = (float)((* data)[i]); 
         }
     }
     return max; 
 }
 
-void GabeTheBabe::StatsBro::allStats(float mean, float stddev, float min, float max){
+void GabeTheBabe::StatsBro::allStats(float avg, float stddev, float min, float max){
 
-    this->mean = mean;
+    this->avg = avg;
     this->stddev = stddev;
     this->min = min;
     this->max = max; 

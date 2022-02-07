@@ -1,46 +1,58 @@
-// hey o
+
 #include "RohdeG_stats.hpp"
+#include "RohdeG_stats.cpp"
 
-using namespace GabeTheBabe::StatsBro
+using namespace GabeTheBabe;
 
-std::vector<float> vect; 
 
-int main((int argc, char** argv)){
+int main(int argc, char** argv){
 
-    printf("Program Name Is: %s\n",argv[0]);
-    if(argc !=1){
-        printf("Need to include file location oop\n");
+    GabeTheBabe::StatsBro statsdata; // variable for stats data
+
+    // putting data from input file as a vector
+    std::vector<float> fileData;
+
+    // string variable for data
+    std::string fileLocation; 
+
+    // testing cmd line to make sure there are enough arguments
+    if(argc > 2){
+        std::cout <<"Error! Need 1 argument for running stats file\n.";
+        std::cout <<"Need to be formatted as: [file location]\n";
         return 10; 
     }
-    else{
 
+    fileLocation = argv[1]; 
 
-        // using vectors: https://stackoverflow.com/questions/39629714/reading-component-vector-data-from-text-file-into-structure-array-c
-        // https://en.cppreference.com/w/cpp/container/vector
-        // need to get data from file at whatever location
-/* 
-        if (FILE *fp = fopen(argv[1], "r"))
-        {
-            
-            std::string buffer;
-            int data;
-            std::getline(std::cin, buffer);
-            std::istringstream iss(buffer);
-            while (iss >> data)
-            vec.push_back(data);
+    // https://www.cplusplus.com/reference/fstream/ifstream/
+    std::ifstream iHopeThisWorks; 
+    iHopeThisWorks.open(fileLocation);
 
+    int sizeOfFile = 0;
 
-            while (size_t len = fread(fp))
-            {
-                
-                v.insert(vec.end(), buf, buf + len);
-            }
-            fclose(fp);
-}
-not entirely sure how to work with vectors
-*/ 
-
-
+    if(iHopeThisWorks.is_open()){
+        while(std::getline(iHopeThisWorks, fileLocation)){
+            fileData.push_back(stof(fileLocation));
+            sizeOfFile++; 
+        }
     }
+
+    else {
+        std::cout << "Unable to open file. \n";
+        return 9; 
+    }
+
+    // float meanVal = GabeTheBabe::StatsBro::meanValue(&fileData, sizeOfFile); 
+    float meanVal = statsdata.meanValue(&fileData, sizeOfFile);
+    float standdev = statsdata.standardDev(&fileData, sizeOfFile, meanVal); 
+    float min = statsdata.minVal(&fileData, sizeOfFile); 
+    float max = statsdata.maxValue(&fileData, sizeOfFile); 
+
+    printf("Mean: %f\n",meanVal);
+    printf("standard deviation: %f\n",standdev);
+    printf("Min: %f\n",min);
+    printf("Max: %f\n",max);
+    printf("Datapoints: %i\n", sizeOfFile);
+
 
 }

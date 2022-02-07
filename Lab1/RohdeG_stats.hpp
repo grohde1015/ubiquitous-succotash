@@ -6,8 +6,8 @@
  * number of data points, mean, standard deviation, min number, max number,
  * and a histogram chart
  */
-#ifndef<GABBIEEE>
-#define<GABBIEEE> 
+#ifndef GABBIEEE
+#define GABBIEEE
 
 #include <string>
 #include <vector>
@@ -26,18 +26,17 @@ namespace GabeTheBabe{
             float minVal(std::vector<float>* data, int size);
             float maxValue(std::vector<float>* data, int size);
 
-            void allStats(float mean, float stddev, float min, float max);
+            void allStats(float avg, float stddev, float min, float max);
             
             // not sure what to do for the histogram yet so I will ignore until later
             // std::string histogram(float data[]);
         
-        private:
             float min;
             float max;
             float avg;
             float stddev; 
          
     };
-    }
+}
 
 #endif 
