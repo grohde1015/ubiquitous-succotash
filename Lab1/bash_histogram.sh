@@ -29,4 +29,4 @@ touch HISTOGRAM_${concentration}_.txt
 mv ./HISTOGRAM_${concentration}_.txt ./EEG_DATA/HISTOGRAM_${concentration}_.txt
 
 echo "File Location: "
-readlink -f ./HISTOGRAM_${concentration}_.txt
+find $PWD -type f | grep "HISTOGRAM_${concentration}_.txt"
