@@ -1,10 +1,13 @@
 
 #include "RohdeG_corr.hpp"
 #include "RohdeG_stats.hpp"
-#include "RohdeG_stats.cpp" // including so i can use mean value
+//#include "RohdeG_stats.cpp" // including so i can use mean value
+
+//using namespace GabeTheBabe;
+//using namespace GabeTheBabeCorr;
 
 // data1 = x and data2 = y -- making it x and y based on equation and i dont want to confuse myself
-float correlationCalc(std::vector <float> *data1, std::vector <float> *data2, int n){
+float GabeTheBabeCorr::CorrelationHehe::correlationCalc(std::vector <float> *data1, std::vector <float> *data2, int n){
 
     GabeTheBabe::StatsBro statsData; // need mean
 
@@ -27,8 +30,6 @@ float correlationCalc(std::vector <float> *data1, std::vector <float> *data2, in
         xSquare = xSum * xSum; 
         ySquare = ySum * ySum; 
 
-        // total sum of x and y 
-        sumTotalxy = xSum + ySum; 
 
     }
 
@@ -49,9 +50,9 @@ float correlationCalc(std::vector <float> *data1, std::vector <float> *data2, in
     denominator = sqrt(leftDenom * rightDenom); 
 
     // getting numerator value
-    numerator = ((xSum * ySum * n) - (xMean2 * yMean2 * n));
+    numerator = ((xSum * ySum * n) - (xMean2 * n));
 
-    total = numerator / denominator; 
+    total = (float)numerator / (float)denominator; 
 
     return total; 
 }
