@@ -21,36 +21,31 @@ float GabeTheBabeCorr::CorrelationHehe::correlationCalc(std::vector <float> *dat
     float total = 0.0;
 
     for(int i=0; i<n;i++){
-
-        // getting sums of the data 
-        xSum = xSum + (*data1)[i];
-        ySum = ySum + (*data2)[i];
-
-        // getting squared values of data
-        xSquare = xSum * xSum; 
-        ySquare = ySum * ySum; 
-
-
+        sumTotalxy = sumTotalxy + (*data1)[i] * (*data2)[i];
+  
     }
 
     // averages using meanValue function created in statsbroooo
     xAvg = statsData.meanValue(data1, n); 
     yAvg = statsData.meanValue(data2, n); 
 
-    // mean squared values so it's easier to do the calculations
-    // also easier to break up so i can test for errors better hehe
-    float xMean2 = xAvg * xAvg;
-    float yMean2 = yAvg * yAvg;
+    xSquare = xAvg * xAvg;
+    ySquare = yAvg * yAvg; 
+
+    for(int i=0;i<n;i++){
+        xSum = xSum + (*data1)[i] * (*data1)[i];
+        ySum = ySum + (*data2)[i] * (*data2)[i];
+    }
 
     // left and right portions of denominator calculations
-    leftDenom = ((xSquare * n) - (xMean2 * n));
-    rightDenom = ((ySquare * n) - (yMean2 * n));
+    leftDenom = xSum - (n * xSquare);
+    rightDenom = ySum - (n * ySquare);
 
     // final denominator calculation 
     denominator = sqrt(leftDenom * rightDenom); 
 
     // getting numerator value
-    numerator = ((xSum * ySum * n) - (xMean2 * n));
+    numerator = sumTotalxy - (n*xAvg*yAvg);
 
     total = (float)numerator / (float)denominator; 
 
