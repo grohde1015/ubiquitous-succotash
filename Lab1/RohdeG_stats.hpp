@@ -9,10 +9,19 @@
 #ifndef GABBIEEE
 #define GABBIEEE
 
-#include <string>
+//#include <string>
+//#include <vector>
+//#include <math.h>
+//#include <iostream>
+#include <stdio.h>
+
 #include <vector>
-#include <math.h>
+#include <cstdio>
+#include <fstream>
+#include <math.h> 
+#include <unistd.h>
 #include <iostream>
+#include <string>
 
 
 // mySpace::yourSpace::myClass -- for me that's GabeTheBabe::StatsBro::
@@ -28,9 +37,9 @@ namespace GabeTheBabe{
 
             void allStats(float avg, float stddev, float min, float max);
             
-            // not sure what to do for the histogram yet so I will ignore until later
-            // std::string histogram(float data[]);
+            std::vector <float> getHist(std::vector<float>* data, int n, float mean, float STD);
         
+        private: 
             float min;
             float max;
             float avg;
