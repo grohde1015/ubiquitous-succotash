@@ -50,7 +50,7 @@ int main(int argc, char** argv){
     }
 
     else {
-        std::cout << "Unable to open file. \n";
+        std::cout << "Unable to open file1. \n";
         return 9; 
     }
 
@@ -67,7 +67,7 @@ int main(int argc, char** argv){
     }
 
     else {
-        std::cout << "Unable to open file. \n";
+        std::cout << "Unable to open file2. \n";
         return 9; 
     }
     int bothCount = 0;
