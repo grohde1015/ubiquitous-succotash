@@ -2,7 +2,7 @@
 
 # Gabbie Rohde
 # Date: February 8, 2022
-# This is the script about IO stuff
+# Printing out histogram data
 
 
 echo "Enter concentration: "

@@ -21,7 +21,7 @@ then
     for i in {1..59}
     do
         echo -n "${i} vs $((i+1))," >> conc_corr_0${concentration}.csv
-        ./corr_test "./EEG_DATA/ERP0${concentration}${i}.txt" "./EEG_DATA/ERP0${concentration}$((i+1)).txt"  
+        ./corr_test "./EEG_DATA/ERP0${concentration}${i}.txt" "./EEG_DATA/ERP0${concentration}$((i+1)).txt"  >> conc_corr_0${concentration}.csv
     
 done
 
