@@ -11,7 +11,7 @@
 #include <iostream> 
 #include <vector>
 #include <fstream> 
-#include <unistd>
+#include <unistd.h>
 
 // UhhSomethingUnique::TimeHacking::
 namespace UhhSomethingUnique{
@@ -21,13 +21,13 @@ namespace UhhSomethingUnique{
 
             void setTimeToHack(int seconds);
             int getTimeToHack();
-            void getObjectToHack();
+            std::string getObjectToHack();
             int hackTime();
 
         private:
             int time_to_hack;
             std::string objectToHack; 
-    }
+    };
 }
 
 #endif
