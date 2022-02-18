@@ -1,7 +1,7 @@
 #! bin/sh
 
 # Gabbie Rohde
-# Date: February 9, 2022
+# Date: February 15, 2022
 # Calculating correlation coefficient between epochs of data 
 
 echo "Enter concentration (either 0 or 5): "

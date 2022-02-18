@@ -102,31 +102,31 @@ std::vector<float> GabeTheBabe::StatsBro::getHist(std::vector<float>* data, int 
             totalBins[0]++;
         }
 
-        else if(((*data)[i] >= ((bin_width*1) + first_bin)) && ((*data)[i] < ((bin_width*2) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*1) + first_bin)) && ((*data)[i] < ((bin_width*2) + first_bin))){
             totalBins[1]++;
         }
 
-        else if(((*data)[i] >= ((bin_width*2) + first_bin)) && ((*data)[i] < ((bin_width*3) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*2) + first_bin)) && ((*data)[i] < ((bin_width*3) + first_bin))){
             totalBins[2]++;
         }  
 
-        else if(((*data)[i] >= ((bin_width*3) + first_bin)) && ((*data)[i] < ((bin_width*4) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*3) + first_bin)) && ((*data)[i] < ((bin_width*4) + first_bin))){
             totalBins[3]++;
         }  
 
-        else if(((*data)[i] >= ((bin_width*4) + first_bin)) && ((*data)[i] < ((bin_width*5) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*4) + first_bin)) && ((*data)[i] < ((bin_width*5) + first_bin))){
             totalBins[4]++;
         } 
 
-        else if(((*data)[i] >= ((bin_width*5) + first_bin)) && ((*data)[i] < ((bin_width*6) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*5) + first_bin)) && ((*data)[i] < ((bin_width*6) + first_bin))){
             totalBins[5]++;
         }  
 
-        else if(((*data)[i] >= ((bin_width*6) + first_bin)) && ((*data)[i] < ((bin_width*7) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*6) + first_bin)) && ((*data)[i] < ((bin_width*7) + first_bin))){
             totalBins[6]++;
         }   
 
-        else if(((*data)[i] >= ((bin_width*7) + first_bin)) && ((*data)[i] < ((bin_width*8) +first_bin))){
+        else if(((*data)[i] >= ((bin_width*7) + first_bin)) && ((*data)[i] < ((bin_width*8) + first_bin))){
             totalBins[7]++;
         }  
 

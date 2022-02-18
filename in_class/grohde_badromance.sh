@@ -12,7 +12,7 @@ gaga="Gaga Ooh la-la"
 roma="roma roma ma"
 want="want your bad romance"
 i=1
-for i in {1..12}
+for i in {1..12} # can also do for ( i = 1; i<13 ; i++)
 do
     if [[ ($i -eq 1) || ($i -eq 3) ]] 
     then
@@ -37,5 +37,12 @@ do
 fi
 done
 
+# filename='./good_movies.txt'
 
-# while IFS = read_line
+while read -r line
+do 
+    if [[ $line -eq "Mean Girls" ]]
+    then
+        echo "$line"
+    fi
+done < good_movies.txt 

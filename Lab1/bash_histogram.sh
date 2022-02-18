@@ -1,7 +1,7 @@
 #! bin/sh
 
 # Gabbie Rohde
-# Date: February 8, 2022
+# Date: February 15, 2022
 # Printing out histogram data
 
 
