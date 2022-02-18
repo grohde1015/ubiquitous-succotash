@@ -12,18 +12,25 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
+#include <unstd.h>
+#include <fstream>
 
+// vectorstuff::vectors::
 namespace vectorstuff {
     class vectors {
         public:
 
         float sum(std::vector<float> *data, int size);
-        std:vector<float> subtract_arrays(std::vector<float> *array1, std::vector<float> *array2); 
-
-        std::vector<float> divide(std::vector<float. *data, int size, int divider); 
+        std:vector<float> subtract_arrays(std::vector<float> *array1, int size1, std::vector<float> *array2); 
+        std::vector<float> divide(std::vector<float> *data, int size, int divider); 
 
         private: 
+        float data_sum;
+        std::vector<float> subtract_arrays; 
+        std::vector<float> divide_arrays; 
+
     };
+    
 }
 
 #endif
