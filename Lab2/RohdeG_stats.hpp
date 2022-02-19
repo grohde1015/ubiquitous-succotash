@@ -14,7 +14,6 @@
 //#include <math.h>
 //#include <iostream>
 #include <stdio.h>
-
 #include <vector>
 #include <cstdio>
 #include <fstream>
