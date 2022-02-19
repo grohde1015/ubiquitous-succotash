@@ -55,6 +55,26 @@ int main(int argc, char* argv[]){
     stream4.open(greenbackfile); 
 
 
+    // checking for correct number of arguments
+    if(argc > 6){
+        printf("Incorrect number of arguments. Need 6 arguments\n");
+        return 10;
+    }
+
+    // making sure all the files exist and if it does then read in line by line
+    // if file doesn't exist then 
+    if(stream1.is_open()){
+        // reading data in -- need to do
+        while()
+
+    }
+    else{
+        // exiting since file is no exist
+        printf("File 1 does not exist sorry\n");
+        return 9; 
+    }
+
+
   
 
 }
