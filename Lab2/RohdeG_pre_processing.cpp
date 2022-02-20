@@ -61,12 +61,20 @@ int main(int argc, char* argv[]){
         return 10;
     }
 
-    // making sure all the files exist and if it does then read in line by line
-    // if file doesn't exist then 
-    if(stream1.is_open()){
-        // reading data in -- need to do
-        while()
+    /* ------------FILE 1------------ */ 
+    // variables for while statements below
+    std::vector<float> testarray1;
+    std::string teststr1; 
+    int count1;
 
+    // making sure all the files exist and if it does then read in line by line
+    // if file doesn't exist then exit
+    if(stream1.is_open()){
+        // reading data in
+        while(std::getline(stream1, teststr1)){
+            testarray1.push_back(stof(teststr1));
+            count1++; 
+        }
     }
     else{
         // exiting since file is no exist
@@ -74,7 +82,76 @@ int main(int argc, char* argv[]){
         return 9; 
     }
 
+    /* ------------FILE 2------------ */ 
+    // variables for while statements below
+    std::vector<float> testarray2;
+    std::string teststr2; 
+    int count2;
 
-  
+    // making sure all the files exist and if it does then read in line by line
+    // if file doesn't exist then exit
+    if(stream2.is_open()){
+        // reading data in 
+        while(std::getline(stream2, teststr2)){
+            testarray2.push_back(stof(teststr2));
+            count2++; 
+        }
+    }
+    else{
+        // exiting since file is no exist
+        printf("File 2 does not exist sorry\n");
+        return 9; 
+    }
 
+   /* ------------FILE 3------------ */ 
+    // variables for while statements below
+    std::vector<float> testarray3;
+    std::string teststr3; 
+    int count3;
+
+    // making sure all the files exist and if it does then read in line by line
+    // if file doesn't exist then exit
+    if(stream3.is_open()){
+        // reading data in
+        while(std::getline(stream3, teststr3)){
+            testarray3.push_back(stof(teststr3));
+            count3++; 
+        }
+    }
+    else{
+        // exiting since file is no exist
+        printf("File 3 does not exist sorry\n");
+        return 9; 
+    }
+
+   /* ------------FILE 4------------ */ 
+    // variables for while statements below
+    std::vector<float> testarray4;
+    std::string teststr4; 
+    int count4;
+
+    // making sure all the files exist and if it does then read in line by line
+    // if file doesn't exist then exit
+    if(stream4.is_open()){
+        // reading data in
+        while(std::getline(stream4, teststr4)){
+            testarray4.push_back(stof(teststr4));
+            count4++; 
+        }
+    }
+    else{
+        // exiting since file is no exist
+        printf("File 2 does not exist sorry\n");
+        return 9; 
+    }
+
+    // getting number of genes from arg 6 
+    int numGenes = std::stoi(argv[6]);
+
+    // make sure data stays under 6118 + 1
+    if(numGenes > 6118){
+        printf("Too many genes. Max number is 6118\n");
+        return 8; 
+    }
+    
 }
