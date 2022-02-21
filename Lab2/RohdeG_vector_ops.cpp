@@ -33,7 +33,6 @@ std::vector<float> vectorstuff::vectors::divide(std::vector<float> *data, int si
 
     int i=0, j=0;
     std::vector<float> divide_arrays;
-    printf("Test");
     // filling subtracted away with size of vector from input
     for(i=0; i<size; i++){
         divide_arrays.push_back(0);
