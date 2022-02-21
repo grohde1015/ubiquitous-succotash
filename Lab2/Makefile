@@ -8,13 +8,22 @@
 
 # Variable definitions:
 CC = g++
+#CFLAGS = -
 
 # code from lab 1 stats stuff
 RohdeG_stats.o: RohdeG_stats.cpp RohdeG_stats.hpp
-	$(CC) -o $@ $<
+	$(CC) -c $^
 
 # code from lab 2 vector stuff
 RohdeG_vector_ops.o: RohdeG_vector_ops.cpp RohdeG_vector_ops.hpp
-	$(CC) -o $@ $<
+	$(CC) -c $^
 
-All: RohdeG_stats.o RohdeG_vector_ops.o
+
+RohdeG_pre_processing.o: RohdeG_pre_processing.cpp RohdeG_pre_processing.hpp RohdeG_stats.o RohdeG_vector_ops.o
+	$(CC) -o $@ $^
+
+all: RohdeG_pre_processing.o
+
+clean:
+	rm -f *.o
+	rm -f *.gch

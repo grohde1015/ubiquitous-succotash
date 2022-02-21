@@ -181,7 +181,7 @@ int main(int argc, char* argv[]){
     // red data
     std::vector<float> redSubtract; 
     redSubtract = vecky.subtract_arrays(&testarray1, redSize, &testarray2); 
-
+ 
     // green data
     std::vector<float> greenSubtract; 
     greenSubtract = vecky.subtract_arrays(&testarray3, greenSize, &testarray4);
