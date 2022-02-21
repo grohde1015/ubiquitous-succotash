@@ -1,4 +1,6 @@
-
+#include "RohdeG_pre_processing.hpp"
+#include "RohdeG_vector_ops.hpp"
+#include "RohdeG_stats.hpp"
 
 void preprocessdata::preprocess::preData(float ratio){
 
@@ -56,16 +58,17 @@ int main(int argc, char* argv[]){
 
 
     // checking for correct number of arguments
-    if(argc > 6){
+    if(argc > 8){
         printf("Incorrect number of arguments. Need 6 arguments\n");
         return 10;
     }
 
     /* ------------FILE 1------------ */ 
-    // variables for while statements below
+    // variables for while statements below (RED)
     std::vector<float> testarray1;
     std::string teststr1; 
-    int count1;
+    int count1=0;
+
 
     // making sure all the files exist and if it does then read in line by line
     // if file doesn't exist then exit
@@ -83,10 +86,10 @@ int main(int argc, char* argv[]){
     }
 
     /* ------------FILE 2------------ */ 
-    // variables for while statements below
+    // variables for while statements below (RED)
     std::vector<float> testarray2;
     std::string teststr2; 
-    int count2;
+    int count2=0;
 
     // making sure all the files exist and if it does then read in line by line
     // if file doesn't exist then exit
@@ -104,10 +107,10 @@ int main(int argc, char* argv[]){
     }
 
    /* ------------FILE 3------------ */ 
-    // variables for while statements below
+    // variables for while statements below (GREEN)
     std::vector<float> testarray3;
     std::string teststr3; 
-    int count3;
+    int count3=0;
 
     // making sure all the files exist and if it does then read in line by line
     // if file doesn't exist then exit
@@ -125,10 +128,10 @@ int main(int argc, char* argv[]){
     }
 
    /* ------------FILE 4------------ */ 
-    // variables for while statements below
+    // variables for while statements below (GREEN)
     std::vector<float> testarray4;
     std::string teststr4; 
-    int count4;
+    int count4=0;
 
     // making sure all the files exist and if it does then read in line by line
     // if file doesn't exist then exit
@@ -141,17 +144,90 @@ int main(int argc, char* argv[]){
     }
     else{
         // exiting since file is no exist
-        printf("File 2 does not exist sorry\n");
+        printf("File 4 does not exist sorry\n");
         return 9; 
     }
 
     // getting number of genes from arg 6 
-    int numGenes = std::stoi(argv[6]);
+    int numGenes = std::stoi(numberofgenes);
 
     // make sure data stays under 6118 + 1
     if(numGenes > 6118){
         printf("Too many genes. Max number is 6118\n");
         return 8; 
     }
-    
+
+    // making sure size of vectors for both red and green are same size
+    int redSize = 0;
+    if(count1 == count2){
+        redSize = count1;
+    }
+    else{
+        printf("Red files are not same size\n");
+        return 7;
+    }
+
+    int greenSize = 0; 
+    if(count3 == count4){
+        greenSize = count3; 
+    }
+    else{
+        printf("Green files are not same size\n");
+        return 7;
+    }
+
+    // subtracting background intensityies from red and green datasets 
+
+    // red data
+    std::vector<float> redSubtract; 
+    redSubtract = vecky.subtract_arrays(&testarray1, redSize, &testarray2); 
+
+    // green data
+    std::vector<float> greenSubtract; 
+    greenSubtract = vecky.subtract_arrays(&testarray3, greenSize, &testarray4);
+
+    // calculating means of corrected green and red datasets ////// these are the corrected datasets right lol
+    float redMean = stats.meanValue(&redSubtract, redSize);
+    float greenMean = stats.meanValue(&greenSubtract, greenSize);
+
+    // normalizing green and red data (using mean) with division
+    std::vector<float> redNormal;
+    std::vector<float> greenNormal; 
+
+
+    redNormal = vecky.divide(&redSubtract, redSize, redMean);
+    greenNormal = vecky.divide(&greenSubtract, greenSize, greenMean); 
+
+    // calculate log intensity ratio 
+
+    // sizes of the two should be the same as specified above
+
+    std::vector<float> ratio;
+    if(redSize = 6118){
+        pre.logFunction(&redNormal, redSize, &greenNormal, &ratio);
+    }
+
+
+    int i=0;
+    // print output of log ratio to input file specified 
+    std::string out(outputfile);
+    std::ofstream getHerGoing;
+    getHerGoing.open(out); 
+
+    if(getHerGoing.is_open()){
+        for(i=0; i<redSize;i++){
+            getHerGoing << ratio[i];
+            getHerGoing << "\n"; 
+        }
+    }
+    else{
+        printf("Log file don't be existin sorry bestie\n"); 
+        return 7; 
+    }
+
+    // closing the log file
+    getHerGoing.close();
+    return 0; 
+
+
 }

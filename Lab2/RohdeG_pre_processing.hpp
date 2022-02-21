@@ -7,7 +7,6 @@
 #include <cstdio>
 #include <fstream>
 #include <math.h> 
-#include <unistd.h>
 #include <iostream>
 #include <string>
 
@@ -24,7 +23,7 @@ namespace preprocessdata{
 
         private:
         float ratio; 
-    }
+    };
 }
 
 
