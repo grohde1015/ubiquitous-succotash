@@ -4,7 +4,10 @@
 // clusterfrick::Cluster::
 
 float clusterfrick::Cluster::distance(float point){
-
+    float tempDistance = 0;
+    tempDistance = ((this->mean) - point); // difference between mean and whatever point
+    tempDistance = abs(tempDistance); // absolute value needed
+    return tempDistance; 
 }
 
 // setters 
@@ -61,10 +64,49 @@ int main(int argc, char* argv[]){
         }
     }
     else{
-        printf("File cannot be found\n");
+        printf("Log file cannot be found\n");
         return 10; 
     }
 
+    // using gene list and reading data in 
+    std::ifstream rfile2; 
+    rfile2.open("gene_list.txt"); 
+    std::string fileData2; 
+    int count2 = 0; 
+    std::vector<std::string> geneListVec;
+
+    if(rfile2.is_open()){
+        
+        while(std::getline(rfile2, fileData2)){
+            geneListVec.push_back((fileData2));
+            count2++; 
+        }
+    }
+    else{
+        printf("Gene file cannot be found\n");
+        return 10; 
+    }
+
+    // initializing 3 class instances for 3 kinds of clusters
+    // some example code -- http://www.cplusplus.com/forum/general/155120/
+    clusterfrick::Cluster SupressedCluster; // cluser 1
+    clusterfrick::Cluster StationaryCluster; // cluster 2 
+    clusterfrick::Cluster ExpressedCluster; // cluster 3
+
+    // defining some variables for cluster means -- values based on lab handout
+    float meanSupressed = -0.5;
+    float meanStationary = 0;
+    float meanExpressed = 0.5;
+
+    // setting name and means for each cluster
+    SupressedCluster.getName("supressed");
+    SupressedCluster.getMean(meanSupressed); 
+
+    StationaryCluster.getName("stationary");
+    StationaryCluster.getMean(meanStationary); 
+
+    ExpressedCluster.getName("expressed");
+    ExpressedCluster.getMean(meanExpressed); 
 
 
 
