@@ -179,5 +179,8 @@ int main(int argc, char* argv[]){
 
     float criteria = abs(newClusterMeanSupressed) + abs(newClusterMeanStationary) + abs(newClusterMeanExpressed);
 
+    // still need to repeat these steps 
+
+
 
 }
