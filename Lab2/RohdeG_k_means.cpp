@@ -163,7 +163,21 @@ int main(int argc, char* argv[]){
 
     }
 
-    // uhhhhh I think sum the distance differences then repeat?
+    // need the mean values from the stats function of the clusters i think 
+    // make sure this is the right function name for the mean cuz i dont wanna open more files :/ 
+    float clusterMeanSupressed = StatsBro.mean(SupressedCluster.getData(), suppressed_count);
+    float clusterMeanStationary = StatsBro.mean(StationaryCluster.getData(), stationary_count);
+    float clusterMeanExpressed = StatsBro.mean(ExpressedCluster.getData(), expressed_count);
+    
+    // sum of abs difference of means but first actually getting the mean differences
+
+    float newClusterMeanSupressed = (SupressedCluster.getMean() - clusterMeanSupressed);
+    float newClusterMeanStationary = (StationaryCluster.getMean() - clusterMeanStationary);
+    float newClusterMeanExpressed = (ExpressedCluster.getMean() - clusterMeanExpressed);
+
+    // calculate abs difference sum which is the criteria 
+
+    float criteria = abs(newClusterMeanSupressed) + abs(newClusterMeanStationary) + abs(newClusterMeanExpressed);
 
 
 }
