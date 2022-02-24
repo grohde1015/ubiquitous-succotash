@@ -95,7 +95,7 @@ int main(int argc, char* argv[]){
 
     // defining some variables for cluster means -- values based on lab handout
     float meanSupressed = -0.5;
-    float meanStationary = 0;
+    float meanStationary = 0.0;
     float meanExpressed = 0.5;
 
     // setting name and means for each cluster
@@ -109,6 +109,29 @@ int main(int argc, char* argv[]){
     ExpressedCluster.getMean(meanExpressed); 
 
 
+    // goes through datapoints for log file and reassigning data point
+    // to whatever the closest cluster is, count=size of log from above
+    int i=0;
+    float parse_data = 0.0; 
 
+    for(i=0; i<count;i++){
+
+        parse_data = logVector[i]; // storing log data
+
+        // setting temp var = to return value for distance function
+        // is i think step 1 (with classes defined above)
+
+
+
+        // comparing values for parse data distance to outputs for the gene means
+
+
+        // uhhhhh I think sum the distance differences then repeat?
+
+        
+
+
+
+    }
 
 }
