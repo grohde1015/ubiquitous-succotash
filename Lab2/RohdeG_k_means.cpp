@@ -108,6 +108,16 @@ int main(int argc, char* argv[]){
     ExpressedCluster.getName("expressed");
     ExpressedCluster.getMean(meanExpressed); 
 
+    // need to define floats and count for each gene group
+    float supressed_var = 0.0;
+    int suppressed_count = 0;
+
+    float stationary_var = 0.0;
+    int stationary_count = 0;
+
+    float expressed_var = 0.0;
+    int expressed_count = 0;
+
 
     // goes through datapoints for log file and reassigning data point
     // to whatever the closest cluster is, count=size of log from above
@@ -118,20 +128,42 @@ int main(int argc, char* argv[]){
 
         parse_data = logVector[i]; // storing log data
 
-        // setting temp var = to return value for distance function
+        // setting temp above var = to return value for distance function
         // is i think step 1 (with classes defined above)
-
-
+        supressed_var = SupressedCluster.distance(parse_data);
+        stationary_var = StationaryCluster.distance(parse_data);
+        expressed_var = ExpressedCluster.distance(parse_data);
 
         // comparing values for parse data distance to outputs for the gene means
+        // if distance is smallest then thats the data point that gets replaced
 
+        // supressed gene distance statement (< or <= ????)
+        if((supressed_var <= stationary_var) && (supressed_var <= )){
+            suppressed_count++; // count for supressed amount 
+            // getting data from the cluser class 
+            
+            //https://stackoverflow.com/questions/47142572/push-back-a-class-object-using-vector
+            SupressedCluster.getData()->push_back(parse_data);
 
-        // uhhhhh I think sum the distance differences then repeat?
+        }
+        else if((stationary_var <= supressed_var) && (stationary_var <= expressed_var)){
+            stationary_count++;
+            StationaryCluster.getData()->push_back(parse_data);
 
-        
-
-
+        }
+        else if((expressed_var <= suppressed_count) && (expressed_var <= stationary_var)){
+            expressed_count++;
+            ExpressedCluster.getData()->push_back(parse_data);
+        }
+        // idk this is just the default
+        else{
+            stationary_count++;
+            StationaryCluster.getData()->push_back(parse_data);
+        }
 
     }
+
+    // uhhhhh I think sum the distance differences then repeat?
+
 
 }
