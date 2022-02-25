@@ -123,7 +123,9 @@ int main(int argc, char* argv[]){
     // to whatever the closest cluster is, count=size of log from above
     int i=0;
     float parse_data = 0.0; 
+    float criteria = 1; 
 
+while(criteria>0.001){
     for(i=0; i<count;i++){
 
         parse_data = logVector[i]; // storing log data
@@ -160,7 +162,6 @@ int main(int argc, char* argv[]){
             stationary_count++;
             StationaryCluster.getData()->push_back(parse_data);
         }
-
     }
 
     // need the mean values from the stats function of the clusters i think 
@@ -177,10 +178,31 @@ int main(int argc, char* argv[]){
 
     // calculate abs difference sum which is the criteria 
 
-    float criteria = abs(newClusterMeanSupressed) + abs(newClusterMeanStationary) + abs(newClusterMeanExpressed);
+    criteria = abs(newClusterMeanSupressed) + abs(newClusterMeanStationary) + abs(newClusterMeanExpressed);
 
-    // still need to repeat these steps 
+    // wait actually we need to set the means then clear the data
+    // setting the new means
 
+    SupressedCluster.setMean(newClusterMeanSupressed);
+    StationaryCluster.setMean(newClusterMeanStationary);
+    ExpressedCluster.setMean(newClusterMeanExpressed); 
 
+    // clearing data that's currently in the getData vector
+
+    SupressedCluster.getData()-> clear(); // function within vector class
+    StationaryCluster.getData()-> clear();
+    ExpressedCluster.getData()-> clear(); 
+
+}
+
+    // Output the final cluster means to standard output. 
+
+    printf("Supressed cluster mean: %f\n", newClusterMeanSupressed);
+    printf("Stationary cluster mean: %f\n", newClusterMeanStationary);
+    printf("Expressed cluster mean: %f\n", newClusterMeanExpressed);
+
+    // i need to print this stuff to an outfile 
+
+    return 0;
 
 }
