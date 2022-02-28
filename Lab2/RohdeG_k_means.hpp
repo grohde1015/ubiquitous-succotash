@@ -30,12 +30,12 @@ namespace clusterfrick{
         // getters
         std::string getName();
         float getMean();
-        std::vector<float> getData(); 
+        std::vector<float>* getData(); 
 
         private:
         std::string name; 
         float mean;
-        std::vector<float> *clusterPoint; 
+        std::vector<float> clusterPoint; 
 
     }; 
 }

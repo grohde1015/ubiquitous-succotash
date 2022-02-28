@@ -68,6 +68,7 @@ int main(int argc, char* argv[]){
         return 10; 
     }
 
+
     // using gene list and reading data in 
     std::ifstream rfile2; 
     rfile2.open("gene_list.txt"); 
@@ -86,6 +87,8 @@ int main(int argc, char* argv[]){
         printf("Gene file cannot be found\n");
         return 10; 
     }
+
+    // we good
 
     // initializing 3 class instances for 3 kinds of clusters
     // some example code -- http://www.cplusplus.com/forum/general/155120/
@@ -123,15 +126,16 @@ int main(int argc, char* argv[]){
     // to whatever the closest cluster is, count=size of log from above
     int i=0;
     float parse_data = 0.0; 
-    float criteria = 1; 
+    float criteria = 1.0; 
 
     // needed to define outside of while
-    float newClusterMeanSupressed;
-    float newClusterMeanStationary;
-    float newClusterMeanExpressed;
-    float clusterMeanSupressed;
-    float clusterMeanStationary;
-    float clusterMeanExpressed;
+    float newClusterMeanSupressed = 0.0;
+    float newClusterMeanStationary = 0.0;
+    float newClusterMeanExpressed = 0.0;
+    float clusterMeanSupressed = 0.0;
+    float clusterMeanStationary = 0.0;
+    float clusterMeanExpressed = 0.0;
+
 
 
 while(criteria>0.0001){
@@ -139,11 +143,16 @@ while(criteria>0.0001){
 
         parse_data = logVector[i]; // storing log data
 
+
         // setting temp above var = to return value for distance function
         // is i think step 1 (with classes defined above)
         supressed_var = SupressedCluster.distance(parse_data);
         stationary_var = StationaryCluster.distance(parse_data);
         expressed_var = ExpressedCluster.distance(parse_data);
+
+                //printf("parse data: %f\n", supressed_var);
+
+
 
         // comparing values for parse data distance to outputs for the gene means
         // if distance is smallest then thats the data point that gets replaced
@@ -161,21 +170,31 @@ while(criteria>0.0001){
             stationary_count++;
             StationaryCluster.getData()->push_back(parse_data);
 
+
         }
-        else if((expressed_var <= suppressed_count) && (expressed_var <= stationary_var)){
+        else if((expressed_var <= supressed_var) && (expressed_var <= stationary_var)){
             expressed_count++;
             ExpressedCluster.getData()->push_back(parse_data);
+
         }
         // idk this is just the default
         else{
-            stationary_count++;
-            StationaryCluster.getData()->push_back(parse_data);
+            //printf("Supressed: %f\n", supressed_var);
+            //printf("Stat: %f\n", stationary_var);
+            //printf("Exp: %f\n", expressed_var);
+
+            printf("Error with datapoint %f\n", parse_data);
+            
         }
     }
 
     // need the mean values from the stats function of the clusters i think 
     // make sure this is the right function name for the mean cuz i dont wanna open more files :/ 
-    // define stuff outside of while and if statements 
+    // define stuff outside of while and if statements
+
+    // debug
+    //printf("stat count: %d\n", stationary_count);
+
     clusterMeanSupressed = stats.meanValue(SupressedCluster.getData(), suppressed_count);
     clusterMeanStationary = stats.meanValue(StationaryCluster.getData(), stationary_count);
     clusterMeanExpressed = stats.meanValue(ExpressedCluster.getData(), expressed_count);
@@ -186,16 +205,21 @@ while(criteria>0.0001){
     newClusterMeanStationary = (StationaryCluster.getMean() - clusterMeanStationary);
     newClusterMeanExpressed = (ExpressedCluster.getMean() - clusterMeanExpressed);
 
+    // debugging
+    //printf("sup: %f\n", clusterMeanSupressed);
+    //printf("stat: %f\n", clusterMeanStationary);
+    //printf("exp: %f\n", clusterMeanExpressed);
     // calculate abs difference sum which is the criteria 
 
-    criteria = abs(newClusterMeanSupressed) + abs(newClusterMeanStationary) + abs(newClusterMeanExpressed);
+    criteria = abs((float)newClusterMeanSupressed) + abs((float)newClusterMeanStationary) + abs((float)newClusterMeanExpressed);
+    //printf("Criteria: %f\n", supressed_var);
 
     // wait actually we need to set the means then clear the data
     // setting the new means
 
-    SupressedCluster.setMean(newClusterMeanSupressed);
-    StationaryCluster.setMean(newClusterMeanStationary);
-    ExpressedCluster.setMean(newClusterMeanExpressed);
+    SupressedCluster.setMean(clusterMeanSupressed);
+    StationaryCluster.setMean(clusterMeanStationary);
+    ExpressedCluster.setMean(clusterMeanExpressed);
 
     // clearing data that's currently in the getData vector
 
@@ -203,13 +227,19 @@ while(criteria>0.0001){
     StationaryCluster.getData() -> clear();
     ExpressedCluster.getData() -> clear(); 
 
+    // thanks dr. cooper -- next time just use vector size() class but it's working now so i aint changing it 
+    suppressed_count = 0;
+    stationary_count = 0;
+    expressed_count = 0;
+
 }
 
     // Output the final cluster means to standard output. 
 
-    printf("Supressed cluster mean: %f\n", newClusterMeanSupressed);
-    printf("Stationary cluster mean: %f\n", newClusterMeanStationary);
-    printf("Expressed cluster mean: %f\n", newClusterMeanExpressed);
+
+    printf("Supressed cluster mean: %f\n", clusterMeanSupressed);
+    printf("Stationary cluster mean: %f\n", clusterMeanStationary);
+    printf("Expressed cluster mean: %f\n", clusterMeanExpressed);
 
     // i need to print this stuff to an outfile 
     // using std::ofstream for 3 text file outputs
@@ -222,8 +252,8 @@ while(criteria>0.0001){
     std::ofstream expressedText;
     expressedText.open("expressed_genes.txt"); 
 
-    
-
+    //  basing if statements below on lab handout for c1mean < c2mean < c3mean
+    // where c1=supressed, c2=stationary, and c3=expressed
 
     return 0;
 
