@@ -11,25 +11,25 @@ float clusterfrick::Cluster::distance(float point){
 }
 
 // setters 
-void setName(std::string nameObj){
+void clusterfrick::Cluster::setName(std::string nameObj){
     this->name = nameObj;
 }
-void setMean(float meanObj){
+void clusterfrick::Cluster::setMean(float meanObj){
     this->mean = meanObj; 
 }
-void setData(std::vector<float> data){
+void clusterfrick::Cluster::setData(std::vector<float> data){
     this->clusterPoint = data; 
 }
 
 // getters
-std::string getName(){
+std::string clusterfrick::Cluster::getName(){
     return this->name;
 }
-float getMean(){
+float clusterfrick::Cluster::getMean(){
     return this->mean; 
 }
-std::vector<float>* getData(){
-    return this->clusterPoint;
+std::vector<float>* clusterfrick::Cluster::getData(){
+    return &(this->clusterPoint);
 }
 
 // only needs one arg and it's name of datafile (log_ratio_input.dat)
@@ -99,14 +99,14 @@ int main(int argc, char* argv[]){
     float meanExpressed = 0.5;
 
     // setting name and means for each cluster
-    SupressedCluster.getName("supressed");
-    SupressedCluster.getMean(meanSupressed); 
+    SupressedCluster.setName("supressed");
+    SupressedCluster.setMean(meanSupressed); 
 
-    StationaryCluster.getName("stationary");
-    StationaryCluster.getMean(meanStationary); 
+    StationaryCluster.setName("stationary");
+    StationaryCluster.setMean(meanStationary); 
 
-    ExpressedCluster.getName("expressed");
-    ExpressedCluster.getMean(meanExpressed); 
+    ExpressedCluster.setName("expressed");
+    ExpressedCluster.setMean(meanExpressed); 
 
     // need to define floats and count for each gene group
     float supressed_var = 0.0;
@@ -125,7 +125,16 @@ int main(int argc, char* argv[]){
     float parse_data = 0.0; 
     float criteria = 1; 
 
-while(criteria>0.001){
+    // needed to define outside of while
+    float newClusterMeanSupressed;
+    float newClusterMeanStationary;
+    float newClusterMeanExpressed;
+    float clusterMeanSupressed;
+    float clusterMeanStationary;
+    float clusterMeanExpressed;
+
+
+while(criteria>0.0001){
     for(i=0; i<count;i++){
 
         parse_data = logVector[i]; // storing log data
@@ -140,7 +149,7 @@ while(criteria>0.001){
         // if distance is smallest then thats the data point that gets replaced
 
         // supressed gene distance statement (< or <= ????)
-        if((supressed_var <= stationary_var) && (supressed_var <= )){
+        if((supressed_var <= stationary_var) && (supressed_var <= expressed_var)){
             suppressed_count++; // count for supressed amount 
             // getting data from the cluser class 
             
@@ -166,15 +175,16 @@ while(criteria>0.001){
 
     // need the mean values from the stats function of the clusters i think 
     // make sure this is the right function name for the mean cuz i dont wanna open more files :/ 
-    float clusterMeanSupressed = StatsBro.mean(SupressedCluster.getData(), suppressed_count);
-    float clusterMeanStationary = StatsBro.mean(StationaryCluster.getData(), stationary_count);
-    float clusterMeanExpressed = StatsBro.mean(ExpressedCluster.getData(), expressed_count);
+    // define stuff outside of while and if statements 
+    clusterMeanSupressed = stats.meanValue(SupressedCluster.getData(), suppressed_count);
+    clusterMeanStationary = stats.meanValue(StationaryCluster.getData(), stationary_count);
+    clusterMeanExpressed = stats.meanValue(ExpressedCluster.getData(), expressed_count);
     
     // sum of abs difference of means but first actually getting the mean differences
 
-    float newClusterMeanSupressed = (SupressedCluster.getMean() - clusterMeanSupressed);
-    float newClusterMeanStationary = (StationaryCluster.getMean() - clusterMeanStationary);
-    float newClusterMeanExpressed = (ExpressedCluster.getMean() - clusterMeanExpressed);
+    newClusterMeanSupressed = (SupressedCluster.getMean() - clusterMeanSupressed);
+    newClusterMeanStationary = (StationaryCluster.getMean() - clusterMeanStationary);
+    newClusterMeanExpressed = (ExpressedCluster.getMean() - clusterMeanExpressed);
 
     // calculate abs difference sum which is the criteria 
 
@@ -185,7 +195,7 @@ while(criteria>0.001){
 
     SupressedCluster.setMean(newClusterMeanSupressed);
     StationaryCluster.setMean(newClusterMeanStationary);
-    ExpressedCluster.setMean(newClusterMeanExpressed); 
+    ExpressedCluster.setMean(newClusterMeanExpressed);
 
     // clearing data that's currently in the getData vector
 
