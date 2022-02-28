@@ -199,9 +199,9 @@ while(criteria>0.0001){
 
     // clearing data that's currently in the getData vector
 
-    SupressedCluster.getData()-> clear(); // function within vector class
-    StationaryCluster.getData()-> clear();
-    ExpressedCluster.getData()-> clear(); 
+    SupressedCluster.getData() -> clear(); // function within vector class
+    StationaryCluster.getData() -> clear();
+    ExpressedCluster.getData() -> clear(); 
 
 }
 
@@ -212,6 +212,18 @@ while(criteria>0.0001){
     printf("Expressed cluster mean: %f\n", newClusterMeanExpressed);
 
     // i need to print this stuff to an outfile 
+    // using std::ofstream for 3 text file outputs
+    std::ofstream supressedText;
+    supressedText.open("supressed_genes.txt"); 
+
+    std::ofstream stationaryText;
+    stationaryText.open("stationary_genes.txt"); 
+
+    std::ofstream expressedText;
+    expressedText.open("expressed_genes.txt"); 
+
+    
+
 
     return 0;
 
