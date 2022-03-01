@@ -22,7 +22,9 @@ RohdeG_vector_ops.o: RohdeG_vector_ops.cpp RohdeG_vector_ops.hpp
 RohdeG_pre_processing.o: RohdeG_pre_processing.cpp RohdeG_pre_processing.hpp RohdeG_stats.o RohdeG_vector_ops.o
 	$(CC) -o $@ $^
 
-all: RohdeG_pre_processing.o
+RohdeG_k_means.o: RohdeG_k_means.cpp RohdeG_k_means.hpp RohdeG_pre_processing.o 
+
+all: RohdeG_k_means.o
 
 clean:
 	rm -f *.o
