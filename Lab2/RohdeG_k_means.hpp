@@ -13,6 +13,9 @@
 #include <math.h> 
 #include <iostream>
 #include <string>
+#include <iterator>
+#include <istream>
+
 
 // clusterfrick::Cluster::
 namespace clusterfrick{

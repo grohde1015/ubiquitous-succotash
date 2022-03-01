@@ -32,6 +32,10 @@ std::vector<float>* clusterfrick::Cluster::getData(){
     return &(this->clusterPoint);
 }
 
+std::ofstream expressedText;
+std::ofstream supressedText;
+std::ofstream stationaryText;
+
 // only needs one arg and it's name of datafile (log_ratio_input.dat)
 int main(int argc, char* argv[]){
 
@@ -69,7 +73,7 @@ int main(int argc, char* argv[]){
     }
 
 
-    // using gene list and reading data in 
+  /*  // using gene list and reading data in 
     std::ifstream rfile2; 
     rfile2.open("gene_list.txt"); 
     std::string fileData2; 
@@ -86,8 +90,9 @@ int main(int argc, char* argv[]){
     else{
         printf("Gene file cannot be found\n");
         return 10; 
-    }
+    } */ 
 
+    // rfile2.close();
     // we good
 
     // initializing 3 class instances for 3 kinds of clusters
@@ -136,19 +141,25 @@ int main(int argc, char* argv[]){
     float clusterMeanStationary = 0.0;
     float clusterMeanExpressed = 0.0;
 
-
-
 while(criteria>0.0001){
+    
+    // clearing data that's currently in the getData vector
+
+    SupressedCluster.getData() -> clear(); // function within vector class
+    StationaryCluster.getData() -> clear();
+    ExpressedCluster.getData() -> clear(); 
+
     for(i=0; i<count;i++){
 
-        parse_data = logVector[i]; // storing log data
+        // im just gonna use logVector directly
+        // parse_data = logVector[i]; // storing log data
 
 
         // setting temp above var = to return value for distance function
         // is i think step 1 (with classes defined above)
-        supressed_var = SupressedCluster.distance(parse_data);
-        stationary_var = StationaryCluster.distance(parse_data);
-        expressed_var = ExpressedCluster.distance(parse_data);
+        supressed_var = SupressedCluster.distance(logVector.at(i));
+        stationary_var = StationaryCluster.distance(logVector.at(i));
+        expressed_var = ExpressedCluster.distance(logVector.at(i));
 
                 //printf("parse data: %f\n", supressed_var);
 
@@ -163,18 +174,19 @@ while(criteria>0.0001){
             // getting data from the cluser class 
             
             //https://stackoverflow.com/questions/47142572/push-back-a-class-object-using-vector
-            SupressedCluster.getData()->push_back(parse_data);
+            SupressedCluster.getData()->push_back(logVector.at(i));
+
 
         }
         else if((stationary_var <= supressed_var) && (stationary_var <= expressed_var)){
             stationary_count++;
-            StationaryCluster.getData()->push_back(parse_data);
+            StationaryCluster.getData()->push_back(logVector.at(i));
 
 
         }
         else if((expressed_var <= supressed_var) && (expressed_var <= stationary_var)){
             expressed_count++;
-            ExpressedCluster.getData()->push_back(parse_data);
+            ExpressedCluster.getData()->push_back(logVector.at(i));
 
         }
         // idk this is just the default
@@ -183,10 +195,11 @@ while(criteria>0.0001){
             //printf("Stat: %f\n", stationary_var);
             //printf("Exp: %f\n", expressed_var);
 
-            printf("Error with datapoint %f\n", parse_data);
+            printf("Error with datapoint %f\n", logVector.at(i));
             
         }
     }
+
 
     // need the mean values from the stats function of the clusters i think 
     // make sure this is the right function name for the mean cuz i dont wanna open more files :/ 
@@ -221,39 +234,89 @@ while(criteria>0.0001){
     StationaryCluster.setMean(clusterMeanStationary);
     ExpressedCluster.setMean(clusterMeanExpressed);
 
-    // clearing data that's currently in the getData vector
-
-    SupressedCluster.getData() -> clear(); // function within vector class
-    StationaryCluster.getData() -> clear();
-    ExpressedCluster.getData() -> clear(); 
-
     // thanks dr. cooper -- next time just use vector size() class but it's working now so i aint changing it 
     suppressed_count = 0;
     stationary_count = 0;
     expressed_count = 0;
 
 }
-
     // Output the final cluster means to standard output. 
-
 
     printf("Supressed cluster mean: %f\n", clusterMeanSupressed);
     printf("Stationary cluster mean: %f\n", clusterMeanStationary);
     printf("Expressed cluster mean: %f\n", clusterMeanExpressed);
 
+    // need min and max values of stationary data
+    float stationaryMin = stats.minVal(StationaryCluster.getData(), stationary_count);
+    float stationaryMax = stats.maxValue(StationaryCluster.getData(), stationary_count);
+
+
     // i need to print this stuff to an outfile 
     // using std::ofstream for 3 text file outputs
-    std::ofstream supressedText;
-    supressedText.open("supressed_genes.txt"); 
+    std::ofstream supressedText("supressed_genes.txt");
+    //supressedText.open("supressed_genes.txt"); 
 
-    std::ofstream stationaryText;
-    stationaryText.open("stationary_genes.txt"); 
+    std::ofstream stationaryText("stationary_genes.txt");
+    //stationaryText.open("stationary_genes.txt"); 
 
-    std::ofstream expressedText;
-    expressedText.open("expressed_genes.txt"); 
+    std::ofstream expressedText("expressed_genes.txt");
+    //expressedText.open("expressed_genes.txt"); 
 
-    //  basing if statements below on lab handout for c1mean < c2mean < c3mean
-    // where c1=supressed, c2=stationary, and c3=expressed
+    std::ifstream geneList("gene_list.txt");
+    //geneList.open("gene_list.txt");
+
+    //std::ifstream logFile("log_ratio_input.dat");
+    //logFile.open("log_ratio_input.dat");
+
+    float logsTemp = 0.0; 
+
+    char geneString[10000];
+
+    std::vector<std::string> fileString;
+    std::string tempLine; 
+
+    std::ifstream geneFile("gene_list.txt"); 
+    //geneFile.open("gene_list.txt"); 
+
+    while(std::getline(geneFile, tempLine)){
+        fileString.push_back(tempLine);
+    }
+        printf("%i\n",suppressed_count); 
+
+    for(int i=0; i<logVector.size(); i++){
+        if(supressedText.is_open() && stationaryText.is_open() && expressedText.is_open()){
+        if(logVector.at(i) < stationaryMin){
+            supressedText << fileString[i] << " " << logVector.at(i) << std::endl;
+            std::cout << logVector.at(i) << "uh"; 
+        }
+        else if(logVector.at(i) > stationaryMax){
+            expressedText << fileString[i] << " " << logVector.at(i) << std::endl; 
+            std::cout << logVector.at(i) << "uhh"; 
+
+        }
+        else{
+            stationaryText << fileString[i] << " " << logVector.at(i) << std::endl; 
+            std::cout << logVector.at(i) << "uhhh"; 
+
+        }
+        }
+        else{
+            printf("they not open\n"); 
+        }
+
+
+    }
+
+    
+    supressedText.close(); 
+    stationaryText.close();
+    expressedText.close();
+    geneList.close();
+    rfile.close();
+
+
+
+
 
     return 0;
 
