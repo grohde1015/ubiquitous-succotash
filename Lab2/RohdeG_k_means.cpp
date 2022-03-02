@@ -287,16 +287,16 @@ while(criteria>0.0001){
         if(supressedText.is_open() && stationaryText.is_open() && expressedText.is_open()){
         if(logVector.at(i) < stationaryMin){
             supressedText << fileString[i] << " " << logVector.at(i) << std::endl;
-            std::cout << logVector.at(i) << "uh"; 
+            // std::cout << logVector.at(i) << "uh"; s
         }
         else if(logVector.at(i) > stationaryMax){
             expressedText << fileString[i] << " " << logVector.at(i) << std::endl; 
-            std::cout << logVector.at(i) << "uhh"; 
+            // std::cout << logVector.at(i) << "uhh"; 
 
         }
         else{
             stationaryText << fileString[i] << " " << logVector.at(i) << std::endl; 
-            std::cout << logVector.at(i) << "uhhh"; 
+            // std::cout << logVector.at(i) << "uhhh"; 
 
         }
         }
@@ -313,10 +313,6 @@ while(criteria>0.0001){
     expressedText.close();
     geneList.close();
     rfile.close();
-
-
-
-
 
     return 0;
 

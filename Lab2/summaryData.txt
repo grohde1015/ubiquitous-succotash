@@ -1,0 +1,154 @@
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Log file cannot be found
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+Supressed cluster mean: -0.099038
+Stationary cluster mean: -0.013082
+Expressed cluster mean: 0.078872
+0
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+Supressed cluster mean: -0.504442
+Stationary cluster mean: -0.042341
+Expressed cluster mean: 0.272742
+0
+Number of supressed genes: 3257 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 2860 expressed_genes.txt
+Supressed cluster mean: -0.307331
+Stationary cluster mean: -0.008057
+Expressed cluster mean: 0.296304
+0
+Number of supressed genes: 4209 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 1908 expressed_genes.txt
+Supressed cluster mean: -0.296325
+Stationary cluster mean: 0.037123
+Expressed cluster mean: 0.535107
+0
+Number of supressed genes: 4206 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 1911 expressed_genes.txt
+Supressed cluster mean: -0.376230
+Stationary cluster mean: 0.041479
+Expressed cluster mean: 0.703677
+0
+Number of supressed genes: 5404 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 713 expressed_genes.txt
+Supressed cluster mean: -0.321558
+Stationary cluster mean: 0.032356
+Expressed cluster mean: 0.649013
+0
+Number of supressed genes: 5370 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 747 expressed_genes.txt
+Supressed cluster mean: -0.315237
+Stationary cluster mean: 0.021571
+Expressed cluster mean: 0.723751
+0
+Number of supressed genes: 5449 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 668 expressed_genes.txt

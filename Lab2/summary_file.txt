@@ -1,0 +1,196 @@
+0
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+1
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+2
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+3
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+4
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+5
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+6
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+0
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+1
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+2
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+3
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+4
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+5
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+6
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+0
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+1
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+2
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+3
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+4
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+5
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+6
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+0
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+1
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+2
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+3
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+4
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+5
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+6
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes: 3580 expressed_genes.txt
+0
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+1
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+2
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+3
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+4
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+5
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+6
+Number of suppressed genes:
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+0
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+1
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+2
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+3
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+4
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+5
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+6
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+0
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+1
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+2
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+3
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+4
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+5
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
+6
+Number of supressed genes: 2537 supressed_genes.txt
+Number of stationary genes: 1 stationary_genes.txt
+Number of expressed genes:
