@@ -2,8 +2,6 @@
 # Gabbie Rohde
 # bash code for making a makefile for arbitrary directory
 
-# create makefile 
-touch Makefile
 
 input=$1
 
@@ -19,7 +17,7 @@ fi
 cd ${input}
 fileNames=$(ls)
 
-
+count=0
 # checking each file and saving it depending on if it has main or not
 for i in "${fileNames}"
 do
@@ -27,16 +25,37 @@ do
     if grep -iq 'main' ${i} 
     then
         mainStr=$( grep -i 'main' ${i} | sed 's/\:.*//g' )
-        files=${i}
+        files[count]=${i}
     else
-        temp=${i}
+        temp[count]=${i}
     fi
+    ((count=count+1))
 done
 
 echo $mainStr
+mainForMake=$( echo "${mainStr}" | sed 's/.cpp//g' )
+echo $mainForMake
 
 # now that we have the files plus know the main file, we can echo stuff to Makefile
 # note that tab is for each command
 # taking each cpp then seeing if it has an hpp 
-for file in "$fileNames" 
+
+numFiles=$( echo "${fileNames}" | grep -o "\." | wc -l )
+
+# iterate through string based on number of files then deleting as i go through
+for((i=0;i<${numFiles};i++))
+do 
+    tempString=${fileNames}
+    echo ${tempString}
     
+
+done
+
+
+
+
+# able to print to makefile with tabs and commands
+echo "all: ${mainForMake}.o" >> Makefile
+echo "clean:" >> Makefile
+echo -e "\t-rm -f *.o" >> Makefile
+echo -e	"\t-rm -f *.gch" >> Makefile
