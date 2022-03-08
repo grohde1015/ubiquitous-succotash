@@ -79,6 +79,16 @@ do
 
 done
 
+# parse through makefile to check if there are any 
+# repeated .o files (which there are) and i would delete 
+# the first instance of the repeated .o plus the line
+# below it--i need to delete the first instance since theres 
+# a weird formatting issue with how i currently implemented the makefile 
+# just ran out of time to make it work :( 
+
+# possible idea though: use uniq -d to display only duplicates, then go 
+# through file and delete first occurance of that plus line after 
+
 
 
 
