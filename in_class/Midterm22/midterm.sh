@@ -32,22 +32,50 @@ do
     ((count=count+1))
 done
 
-echo $mainStr
+#echo $mainStr
 mainForMake=$( echo "${mainStr}" | sed 's/.cpp//g' )
-echo $mainForMake
+#echo $mainForMake
 
 # now that we have the files plus know the main file, we can echo stuff to Makefile
 # note that tab is for each command
 # taking each cpp then seeing if it has an hpp 
 
+# issue with argument $@ so making a variable thats the argument for makefile
+echo "UHH = $@" >> Makefile
+
 numFiles=$( echo "${fileNames}" | grep -o "\." | wc -l )
 
 # iterate through string based on number of files then deleting as i go through
-for((i=0;i<${numFiles};i++))
+for((i=1;i<=${numFiles};i++))
 do 
     tempString=${fileNames}
-    echo ${tempString}
-    
+    #echo ${tempString}
+    tempSub=$(echo $tempString | cut -d' ' -f ${i})
+    #echo ${tempSub}
+
+    # cpp 
+    if [[ "$tempSub" == *".cpp" ]]
+    then
+        oPartcpp=${tempSub}
+        oPartCut=$( echo "${tempSub}" | sed 's/.cpp//g' )
+    elif [[ "$tempSub" == *".hpp" ]]
+    # hpp
+    then
+        oParthpp=${tempSub}
+        #echo "hpp: ${oParthpp}"
+    else
+        echo "oh error checking"
+    fi
+
+    # making sure main isnt duplicated
+    if [[ "$oPartCut" == "$mainForMake" ]]
+    then   
+        echo "${oPartCut}.o: ${oPartcpp} ${oParthpp}" >> Makefile
+        echo -e "\tg++ -o UHH $^" >> Makefile
+    else
+        echo "${oPartCut}.o: ${oPartcpp} ${oParthpp}" >> Makefile
+        echo -e "\tg++ -c $^" >> Makefile
+    fi
 
 done
 
