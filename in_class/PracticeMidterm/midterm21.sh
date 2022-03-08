@@ -13,6 +13,7 @@ fi
 fileSize=$( wc -l < owid-covid-data.csv )
 # getting ref country data as array
 echo $fileSize
+refCountrysum=0.0
 
 
 rowNum=1 # this is for iterating through the whole file
@@ -26,14 +27,20 @@ while IFS=, read -ra fields; do
     if [[ ${tempLoc[rowNum]} == *"$2"* ]]
     then 
         # puts country argument 2 and date field 3 to reference location
-        echo "${fields[2]},${fields[3]}" >> refLocation[rowNum]
+        echo "${fields[2]},${fields[3]},${fields[10]}" >> refLocation
+
+        refCountrysum=$(echo "$refCountrysum + ${field[10]}" | bc -l)
+        
     fi
 
     # same as above but looking at 3rd argument instead of 2
     if [[ ${tempLoc[rowNum]} == *"$3"* ]]
     then 
-        echo "${fields[2]},${fields[3]}" >> compLocation[rowNum]
+        echo "${fields[2]},${fields[3]},${fields[10]}" >> compLocation
     fi
     ((rowNum=rowNum+1))
 done < "owid-covid-data.csv"
+    
+echo ${refCountrysum}
+
 
