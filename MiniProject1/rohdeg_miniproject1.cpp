@@ -14,9 +14,18 @@ int main(int argc, char* argv[]){
     std::string fileName = argv[1]; 
     std::ifstream fileData(fileName); 
 
+    // defining class name
+    GabeTheBabe::StatsBro statsData; 
+
+    // temp data 
+    float speedValue; 
+
     // reading file data into variable -- need a stats class instance as next step
     if(fileData.is_open()){
-        // class stuff
+        // class stuff loading data
+        while(fileData >> speedValue){
+            statsData.addData(speedValue);
+        }
 
         fileData.close();
     }
@@ -26,5 +35,11 @@ int main(int argc, char* argv[]){
     }
 
     // stats classes set to variable values
+    float minValue = statsData.minVal();
+    float maxValue = statsData.maxValue();
+    float average = statsData.meanValue();
+    float standDev = statsData.standardDev();
+
+    return 0; 
     
 }
