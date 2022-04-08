@@ -18,14 +18,18 @@ RohdeG_stats.o: RohdeG_stats.cpp RohdeG_stats.hpp
 RohdeG_vector_ops.o: RohdeG_vector_ops.cpp RohdeG_vector_ops.hpp
 	$(CC) -c $^
 
-
 RohdeG_pre_processing.o: RohdeG_pre_processing.cpp RohdeG_pre_processing.hpp RohdeG_stats.o RohdeG_vector_ops.o
 	$(CC) -o $@ $^
 
 RohdeG_k_means.o: RohdeG_k_means.cpp RohdeG_k_means.hpp RohdeG_stats.o #RohdeG_pre_processing.o
 	$(CC) -o $@ $^
 
-all: RohdeG_k_means.o
+libstuff.so: RohdeG_k_means.o RohdeG_pre_processing.o RohdeG_vector_ops.o RohdeG_stats.o
+	$(CC) -shared $^ -o $@
+
+lib: libstuff.so
+
+all: RohdeG_k_means.o lib
 
 clean:
 	rm -f *.o
