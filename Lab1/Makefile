@@ -4,7 +4,7 @@
 #	$< - first dependencies 
 
 CC = g++ 
-SHELL = bin/bash
+SHELL = /bin/bash
 # unsure what flags to use for compiler flags??? 
 CFLAGS = -c
 
