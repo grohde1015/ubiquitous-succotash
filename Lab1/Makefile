@@ -8,10 +8,10 @@
 CC = g++ 
 SHELL = /bin/bash
 # unsure what flags to use for compiler flags??? 
-CFLAGS = -c
+CFLAGS = -fPIC -g
 
 RohdeG_stats.o: RohdeG_stats.cpp RohdeG_stats.hpp
-	$(CC) $(CFLAGS) $^ 
+	$(CC) $(CFLAGS) $^ -lm
 
 libstuff_stats.so: RohdeG_stats.o
 	$(CC) -shared $^ -o $@

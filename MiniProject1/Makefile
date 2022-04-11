@@ -7,7 +7,7 @@
 
 CC = g++
 SHELL = /bin/bash
-CFLAGS = -c
+CFLAGS = -fPIC -g
 # finds stats library with linker flags
 LDFLAGS = -L"/home/rohdeg/Git/ubiquitous-succotash/Lab1"
 # library directory 
@@ -17,11 +17,11 @@ INCDIR = -I"/home/rohdeg/Git/ubiquitous-succotash/Lab1"
 
 # need to call stats library in Lab1 -- automatically goes into dir where lab1 is
 libstuff_stats.so:
-	cd "/home/rohdeg/Git/ubiquitous-succotash/Lab1"
+	cd /home/rohdeg/Git/ubiquitous-succotash/Lab1 && make libstuff_stats.so
 	
 airspeed: rohdeg_miniproject1.cpp
 	make libstuff_stats.so
-	$(CC) $(CFLAGS) $(INCDIR) -o $@ $^ -Wl,-rpath=$(LIBDIR) $(LDFLAGS) -libstats
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ $^ -Wl,-rpath=$(LIBDIR) $(LDFLAGS)
 
 clean: 
 	rm airspeed

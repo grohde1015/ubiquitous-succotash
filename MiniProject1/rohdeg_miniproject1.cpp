@@ -2,7 +2,9 @@
 // Mini project 1 -- speed of swallow stuff
 // due April 13 2022
 
-#include "/home/rohdeg/Git/ubiquitous-succotash/Lab1/RohdeG_stats.hpp"
+#include "/home/rohdeg/Git/ubiquitous-succotash/Lab1/RohdeG_stats.cpp"
+
+using namespace GabeTheBabe;
 
 int main(int argc, char* argv[]){
     // checking for file input from command line
@@ -15,7 +17,7 @@ int main(int argc, char* argv[]){
     std::string fileName = argv[1]; 
 
     // defining class name
-    GabeTheBabe::StatsBro statsData; 
+    GabeTheBabe::StatsBro statsData; // variable for stats data
     std::vector<float> fileData;
 
     std::ifstream iHopeThisWorks; 
