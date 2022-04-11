@@ -7,39 +7,45 @@
 int main(int argc, char* argv[]){
     // checking for file input from command line
     if(argc != 2){
-        std::cout << "Incorrect number of arguments.\n"
+        printf("Incorrect number of arguments.\n");
         return 10; 
     }
 
     // file name 
     std::string fileName = argv[1]; 
-    std::ifstream fileData(fileName); 
 
     // defining class name
     GabeTheBabe::StatsBro statsData; 
+    std::vector<float> fileData;
 
-    // temp data 
-    float speedValue; 
+    std::ifstream iHopeThisWorks; 
+    iHopeThisWorks.open(fileName);
 
-    // reading file data into variable -- need a stats class instance as next step
-    if(fileData.is_open()){
-        // class stuff loading data
-        while(fileData >> speedValue){
-            statsData.addData(speedValue);
+    int sizeOfFile = 0;
+
+    if(iHopeThisWorks.is_open()){
+        while(std::getline(iHopeThisWorks, fileName)){
+            fileData.push_back(stof(fileName));
+            sizeOfFile++; 
         }
-
-        fileData.close();
     }
-    else{
-        std::cout << "Cannot open file soory\n"
-        return 10; 
+
+    else {
+        std::cout << "Unable to open file. \n";
+        return 9; 
     }
 
     // stats classes set to variable values
-    float minValue = statsData.minVal();
-    float maxValue = statsData.maxValue();
-    float average = statsData.meanValue();
-    float standDev = statsData.standardDev();
+    float minValue = statsData.minVal(&fileData, sizeOfFile);
+    float maxValue = statsData.maxValue(&fileData, sizeOfFile);
+    float average = statsData.meanValue(&fileData, sizeOfFile);
+    float standDev = statsData.standardDev(&fileData, sizeOfFile, average);
+
+    // prints values to terminal
+    printf("Min value: %f\n", minValue);
+    printf("Max value: %f\n", maxValue);
+    printf("Average value: %f\n", average);
+    printf("Standard deiation value: %f\n", standDev);
 
     return 0; 
     

@@ -21,7 +21,7 @@ libstuff_stats.so:
 	
 airspeed: rohdeg_miniproject1.cpp
 	make libstuff_stats.so
-	$(CC) $(CFLAGS) $(INCDIR) -o $^ -Wl,-rpath=$(LIBDIR) $(LDFLAGS) -libstats
+	$(CC) $(CFLAGS) $(INCDIR) -o $@ $^ -Wl,-rpath=$(LIBDIR) $(LDFLAGS) -libstats
 
 clean: 
 	rm airspeed
