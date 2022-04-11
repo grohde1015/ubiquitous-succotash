@@ -3,6 +3,8 @@
 #	$^ - list of dependencies 
 #	$< - first dependencies 
 
+# Makefile for lab1 stats library
+
 CC = g++ 
 SHELL = /bin/bash
 # unsure what flags to use for compiler flags??? 
