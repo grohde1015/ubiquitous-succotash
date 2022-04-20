@@ -1,13 +1,17 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <sys/file.h>
 
 class SourPatch{
     public:
         SourPatch(std::string ingredients){
+        Drug(std::string name, std::vector<Ingredient>* ingredientList);
+        
+
 
         }
-    
+     
     
 }
 
