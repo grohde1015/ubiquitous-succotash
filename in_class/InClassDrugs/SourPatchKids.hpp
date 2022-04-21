@@ -1,55 +1,26 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include <sys/file.h>
 
-class SourPatch{
-    public:
-        SourPatch(std::string ingredients){
-        Drug(std::string name, std::vector<Ingredient>* ingredientList);
-        
+void locking(){
 
+    // accessing the files based on ingredient 
+    FILE *sugar; 
 
-        }
-     
-    
+    char sugar_location[] = "/warehouse/sugar";
+    // char sugar_location[] = "/lab/bien4290/warehouse/sugar"; 
+
+    sugar = fopen(sugar_location, "r+");
+
+    printf("sugar: %s\n", sugar);
+
+    if(sugar == NULL){
+        printf("Error\n");
+    }
+
 }
 
-class Drug{    
-    public:
-        void Drug(std::string name, std::vector<Ingredient>* ingredientList);
-
-        virtual std::string getName() = 0;
-        virtual std::vector<Ingredient>* getIngredients() = 0;
-
-    protected:
-        std::string name;
-        std::vector<Ingredient>* ingreds;
-};
-
-class Ingredient{
-    public:
-        void Ingredient(std::string name, int quantity, std::string path);
-        void Ingredient(std::string name, std::string path);
-
-        virtual std::string getName() = 0;
-        virtual std::string getPath() = 0;
-        virtual int getQuantity() = 0;
-        virtual void setQuantity(int quantity) = 0;
-
-    protected:
-        std::string name;
-        std::string path;
-        int quantity = 0;
-};
-
-class DrugFactory{
-
-	public:
-		virtual Drug* makeDrug() = 0; // VIRTUAL factory method- lets your subclass define how something is produced
-		virtual shipDrug() = 0; // Make sure there's a way to update the drug warehouse
-	
-	private:
-		std::string drug_warehouse_path;
-	
-};
+int main(){
+    locking();
+    return 0; 
+}
