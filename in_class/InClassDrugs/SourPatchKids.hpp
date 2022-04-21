@@ -1,6 +1,9 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <string> 
+
+// https://man7.org/linux/man-pages/man2/flock.2.html
 
 void locking(){
 
@@ -16,6 +19,13 @@ void locking(){
 
     if(sugar == NULL){
         printf("Error\n");
+    }
+
+    if ((flock(sugar, LOCK_EX) == 0)){ 
+        printf("File is locked\n"); 
+    }
+    if ((flock(sugar, LOCK_UN) == 0)) {
+        printf("File is unlocked\n");
     }
 
 }
